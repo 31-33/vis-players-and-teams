@@ -1,0 +1,17 @@
+{
+  "name": "create_dataset",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.3.0",
+    "random-normal": "^1.0.0",
+    "sharp": "^0.22.0",
+    "sqlite3": "^4.0.6"
+  }
+}
