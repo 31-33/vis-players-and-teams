@@ -24,7 +24,10 @@ class Player {
                 .toFile(`avatars/${id}.jpeg`), (err, info) =>
                 {
                   if(err) console.log(`Error creating image for id${id}: ${err}`);
-                  return new Player(id, `${namedata.names[0]} ${namedata.names[1]}`, `avatars/${id}.jpeg`, randomNormal({ mean: 0.5, dev: 0.2}));
+
+                  var skill_val = randomNormal({ mean: 0.5, dev: 0.2});
+                  skill_val = skill_val < 0.1 ? 0.1 : skill_val > 1.0 ? 1.0 : skill_val;
+                  return new Player(id, `${namedata.names[0]} ${namedata.names[1]}`, `avatars/${id}.jpeg`, skill_val);
                 }
               });
           }
