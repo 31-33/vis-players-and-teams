@@ -41,7 +41,7 @@ setInterval(() => {
       db.run('INSERT INTO players (id, name, avatar_path, skill_level) VALUES (?, ?, ?, ?)',
         [player.id, player.player_name, player.avatar_path, player.skill_level]);
     })
-}, 100);
+}, 2500);
 
 
 
