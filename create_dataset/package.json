@@ -12,6 +12,7 @@
     "node-fetch": "^2.3.0",
     "random-normal": "^1.0.0",
     "sharp": "^0.22.0",
-    "sqlite3": "^4.0.6"
+    "sqlite3": "^4.0.6",
+    "weighted-random": "^0.1.0"
   }
 }
