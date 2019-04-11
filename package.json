@@ -4,11 +4,15 @@
   "description": "University of Waikato COMPX532-19A - Assignment 3, Representing Relationships",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "Christopher Symon",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
+    "jsdom": "^14.0.0",
     "sqlite3": "^4.0.6",
     "vis": "^4.21.0"
   },
