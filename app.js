@@ -102,7 +102,7 @@ server.get('/players/:id', (req, res) => {
             INNER JOIN player_groups selectedgroup ON games.home_group = selectedgroup.group_id
             INNER JOIN player_groups relatedgroup ON games.home_group = relatedgroup.group_id
             INNER JOIN players relatedplayers ON relatedgroup.player_id = relatedplayers.id
-            WHERE selectedgroup.player_id = ${playerId}
+            WHERE selectedgroup.player_id = ${playerId} AND relatedplayers.id != ${playerId}
             GROUP BY relatedgroup.player_id
           UNION ALL
             SELECT relatedplayers.id, relatedplayers.name, relatedplayers.avatar_path,
@@ -113,7 +113,7 @@ server.get('/players/:id', (req, res) => {
             INNER JOIN player_groups selectedgroup ON games.home_group = selectedgroup.group_id
             INNER JOIN player_groups relatedgroup ON games.away_group = relatedgroup.group_id
             INNER JOIN players relatedplayers ON relatedgroup.player_id = relatedplayers.id
-            WHERE selectedgroup.player_id = ${playerId}
+            WHERE selectedgroup.player_id = ${playerId} AND relatedplayers.id != ${playerId}
             GROUP BY relatedgroup.player_id
           UNION ALL
             SELECT relatedplayers.id, relatedplayers.name, relatedplayers.avatar_path,
@@ -124,7 +124,7 @@ server.get('/players/:id', (req, res) => {
             INNER JOIN player_groups selectedgroup ON games.away_group = selectedgroup.group_id
             INNER JOIN player_groups relatedgroup ON games.home_group = relatedgroup.group_id
             INNER JOIN players relatedplayers ON relatedgroup.player_id = relatedplayers.id
-            WHERE selectedgroup.player_id = ${playerId}
+            WHERE selectedgroup.player_id = ${playerId} AND relatedplayers.id != ${playerId}
             GROUP BY relatedgroup.player_id
           UNION ALL
             SELECT relatedplayers.id, relatedplayers.name, relatedplayers.avatar_path,
@@ -135,7 +135,7 @@ server.get('/players/:id', (req, res) => {
             INNER JOIN player_groups selectedgroup ON games.away_group = selectedgroup.group_id
             INNER JOIN player_groups relatedgroup ON games.away_group = relatedgroup.group_id
             INNER JOIN players relatedplayers ON relatedgroup.player_id = relatedplayers.id
-            WHERE selectedgroup.player_id = ${playerId}
+            WHERE selectedgroup.player_id = ${playerId} AND relatedplayers.id != ${playerId}
             GROUP BY relatedgroup.player_id)
           GROUP BY id
           ORDER BY game_count DESC, with_wins DESC, against_wins DESC, with_losses DESC, against_losses DESC`, (err, players) => {
