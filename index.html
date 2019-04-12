@@ -6,7 +6,19 @@
   <link href="node_modules/vis/dist/vis.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  <div id="vis-container"></div>
+  <section style="float:left; width:15%; height: 100vh">
+    <div>
+      <h3>Teams</h3>
+      <select size="10" id="teams-list" style="width:100%"></select>
+    </div>
+    <div>
+      <h3>Players</h3>
+      <select size="30" id="players-list" style="width:100%"></select>
+    </div>
+  </section>
+  <section style="float:right; width:85%; height:100vh">
+    <div id="vis-container"></div>
+  </section>
   <script src="data-vis.js"></script>
 </body>
 </html>
