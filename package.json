@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "express-sslify": "^1.2.0",
     "jsdom": "^14.0.0",
     "sqlite3": "^4.0.6",
     "vis": "^4.21.0"

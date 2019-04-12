@@ -1,4 +1,5 @@
 var express = require('express');
+var enforce = require('express-sslify');
 var sqlite3 = require('sqlite3').verbose();
 
 db = new sqlite3.Database(`./dataset.db`, sqlite3.OPEN_READONLY, err => {
@@ -7,6 +8,7 @@ db = new sqlite3.Database(`./dataset.db`, sqlite3.OPEN_READONLY, err => {
 });
 
 var server = express();
+server.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 server.use('', express.static(__dirname));
 
