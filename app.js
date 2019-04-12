@@ -2,6 +2,8 @@ var express = require('express');
 var enforce = require('express-sslify');
 var sqlite3 = require('sqlite3').verbose();
 
+const PORT = process.env.PORT || 3000;
+
 db = new sqlite3.Database(`./dataset.db`, sqlite3.OPEN_READONLY, err => {
   if(err) return console.log(`Error: ${err}`);
   console.log('Initialized SQlite database');
@@ -248,4 +250,4 @@ server.get('/teams/:id', (req, res) => {
 });
 
 
-server.listen(3000);
+server.listen(PORT);
